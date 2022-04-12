@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+    <button title="open console to see the result" onclick="handelClickWithDebounce('debounce')">Click for debounce</button>
+    <button title="open console to see the result" onclick="handelClickWithThrottle('throttle')">click for throttle </button>
+
+    <div class="title">Progress Bar-</div>
+    <div class="bar">
+        <div class="inner-bar"></div>
+    </div>
+    <button onclick="initBar()">Trigger Loading</button>
+
+   <div class="title"> Absolute Rating-</div>
+    <div class="5-star" onclick="handleRating(event)">
+        <span id="1">&#9734; </span>
+        <span id="2">&#9734; </span>
+        <span id="3">&#9734; </span>
+        <span id="4">&#9734; </span>
+        <span id="5">&#9734; </span>
+    </div>
+
+    <div class="title">Average rating (in progress)</div>
+    <div class="5-star-avg" onclick="handleRating(event)">
+        &#9734;&#9734;&#9734;&#9734;&#9734;
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
+
