@@ -1,16 +1,46 @@
-.bar{
+.bar {
     height: 20px;
     border-radius: 10px;
     width: 200px;
     background-color: darkgrey;
     margin: 10px;
 }
+
 .inner-bar {
     height: 100%;
     background-color: green;
     width: 0%;
     border-radius: 10px;
 }
+
 .title {
     margin-top: 10px;
+}
+
+.star-outer {
+    position: relative;
+    display: inline-block;
+}
+
+.star-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 67%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.star-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: fontAwesome;
+    color: #ccc;
+    font-weight: 1000;
+}
+
+.star-inner::before {
+    content:  "\f005 \f005 \f005 \f005 \f005";
+    font-family: fontAwesome;
+    color: rgb(243, 213, 14);
+    font-weight: 100;
 }
