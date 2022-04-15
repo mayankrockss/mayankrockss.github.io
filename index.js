@@ -31,6 +31,7 @@ const handelClickWithDebounce = debounce(onclick, 1000);
 
 const handelClickWithThrottle = throttle(onclick, 1000);
 
+//------------loading bar------------------------------------
 
 function initBar() {
     const innerBar = document.querySelector(".inner-bar");

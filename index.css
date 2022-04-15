@@ -1,4 +1,14 @@
-.bar{
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+main {
+ margin: 10px;
+}
+
+.bar {
     height: 20px;
     border-radius: 10px;
     width: 200px;
@@ -13,4 +23,58 @@
 }
 .title {
     margin-top: 10px;
+}
+
+.star-outer {
+    position: relative;
+    display: inline-block;
+}
+
+.star-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 67%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.star-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: fontAwesome;
+    color: #ccc;
+    font-weight: 1000;
+}
+
+.star-inner::before {
+    content:  "\f005 \f005 \f005 \f005 \f005";
+    font-family: fontAwesome;
+    color: rgb(243, 213, 14);
+    font-weight: 100;
+}
+
+nav ul{
+display: flex;
+justify-content: flex-end;
+list-style: none;
+background-color: crimson;
+}
+
+nav {
+    margin-bottom: 10px;
+}
+nav ul >li {
+    margin: 20px;
+}
+nav ul >li a {
+    text-decoration: none;
+    color: rgb(242, 203, 203);
+    background-color: rgb(148, 15, 41);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow:  0 0px 6px 1px currentColor;
+    transition: box-shadow linear 80ms;
+}
+nav ul >li a:hover {
+    box-shadow: 0 0 3px currentColor;
 }

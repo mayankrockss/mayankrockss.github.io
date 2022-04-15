@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,44 @@
     <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
+
 <body>
-    <button title="open console to see the result" onclick="handelClickWithDebounce('debounce')">Click for debounce</button>
-    <button title="open console to see the result" onclick="handelClickWithThrottle('throttle')">click for throttle </button>
+    <nav>
+        <ul>
+            <li><a href="./Components/Autocomplete/autocomplete.html">Auto Complete</a></li>
+            <li><a href="#">Infinite scroll</a></li>
+            <li><a href="#">Drag and drop</a></li>
+            <li><a href="#">Shadow DOM</a></li>
+        </ul>
+    </nav>
+    <main>
 
-    <div class="title">Progress Bar-</div>
-    <div class="bar">
-        <div class="inner-bar"></div>
-    </div>
-    <button onclick="initBar()">Trigger Loading</button>
+        <button title="open console to see the result" onclick="handelClickWithDebounce('debounce')">Click for
+            debounce</button>
+        <button title="open console to see the result" onclick="handelClickWithThrottle('throttle')">click for throttle
+        </button>
 
-   <div class="title"> Absolute Rating-</div>
-    <div class="5-star" onclick="handleRating(event)">
-        <span id="1">&#9734; </span>
-        <span id="2">&#9734; </span>
-        <span id="3">&#9734; </span>
-        <span id="4">&#9734; </span>
-        <span id="5">&#9734; </span>
-    </div>
+        <div class="title">Progress Bar-</div>
+        <div class="bar">
+            <div class="inner-bar"></div>
+        </div>
+        <button onclick="initBar()">Trigger Loading</button>
 
-    <div class="title">Average rating (in progress)</div>
-    <div class="5-star-avg" onclick="handleRating(event)">
-        &#9734;&#9734;&#9734;&#9734;&#9734;
-    </div>
+        <div class="title"> Absolute Rating without Font awesome-</div>
+        <div class="5-star" onclick="handleRating(event)">
+            <span id="1">&#9734; </span>
+            <span id="2">&#9734; </span>
+            <span id="3">&#9734; </span>
+            <span id="4">&#9734; </span>
+            <span id="5">&#9734; </span>
+        </div>
 
-
-    <script src="./index.js"></script>
+        <div class="title">Average rating with font awesome-</div>
+        <div class="star-container"></div>
+        <div class="star-outer">
+            <div class="star-inner"></div>
+        </div>
+    </main>
 </body>
-</html>
 
+</html>

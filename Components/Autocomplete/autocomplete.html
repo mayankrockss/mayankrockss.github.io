@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./autocomplete.css">
+
+    <title>Auto complete</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" placeholder="type 'may'" oninput="debouncedHandelInput(event)" />
+        <span class="shadow"></span>
+        <div class=" hidden suggestion-container">
+        </div>
+
+    </div>
+    <script src="../../index.js"></script>
+    <script src="./autocomplete.js"></script>
+</body>
+
+</html>

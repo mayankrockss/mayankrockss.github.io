@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+body {
+     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    position: relative;
+    transform: scale(2)
+}
+.suggestion-container {
+    position: absolute;
+    background-color: crimson;
+    color: rgb(248, 245, 245);
+    width:100%;
+    border-radius: 2px;
+    border-bottom: 1px solid rgb(71, 10, 22);
+    height: 100px;
+    overflow: auto;
+}
+.suggestion-container div{
+border: 1px solid rgb(71, 10, 22);
+border-bottom: 0;
+}
+.shadow {
+    position: absolute;
+    left: 0;
+    top: 2.3px;
+    padding-left: 2px;
+    font-size: smaller;
+    width: 100%;
+    opacity: 0.4;
+    pointer-events: none;
+}
+.hidden {
+    display: none;
+}
