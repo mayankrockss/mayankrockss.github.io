@@ -37,7 +37,7 @@ let fromPageNo = 0;
 async function callAPI(pageNo, addObserver = true) {
     const res = await fetch(`https://api.instantwebtools.net/v1/passenger?page=${pageNo}&size=50`);
     const result = await res.json();
-    console.log(result)
+    console.log(result);
     if (addObserver)
         loadDataOnScreen(result);
     else loadPrevDataOnScreen(result);
@@ -54,21 +54,25 @@ function func(...args) {
         observer.disconnect();
         pageNo++;
         callAPI(pageNo);
-        if (pageNo > 2) {
-            for (let i = 0; i < 50; i++) {
-                list.children[i].remove();
+        setTimeout(() => {
+            if (pageNo > 2) {
+                const toremove = [...list.children].slice(0, -150)
+                for (let i = 0; i < toremove.length; i++) {
+                    list.children?.[i].remove();
+                }
+                fromPageNo = pageNo - 3;
+                revObserver.observe(list.children[0]);
             }
-            fromPageNo++;
-            revObserver.observe(list.children[0]);
-        }
+        }, 1000);
+
     }
 }
 
 function revFunc(...args) {
     if (args[0][0].isIntersecting) {
         revObserver.disconnect();
-        if (fromPageNo > 0)
-            callAPI(fromPageNo - 1, false);
+        if (fromPageNo > -1)
+            callAPI(fromPageNo, false);
     }
 }
 
