@@ -238,3 +238,242 @@
 
 // const a = [-4]
 // console.log(missing(a));
+
+//---------------- if straight line? ----------------------------------------
+
+// function check(arr) {
+//     let diff;
+//     for (let i = 0; i < arr.length; i++) {
+//         const tmpdiff = arr[i][0] - arr[i][1];
+
+//         if (diff !== undefined && diff !== tmpdiff) {
+//             return "not straight line"
+//         } else {
+//             diff = tmpdiff;
+//         }
+//     }
+//     return "straight line"
+// }
+// const coordinates = [[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]]
+// console.log(check(coordinates));
+
+// --------------- flattne array till n level----------------------------------
+
+// function flatten(arr, depth = Infinity, res = []) {
+//     arr.forEach(e => {
+//         if (Array.isArray(e) && depth >= 1) {
+//             depth--;
+//             flatten(e, depth, res);
+//         }
+//         else {
+//             res.push(e);
+//         }
+//     });
+//     return res;
+// }
+
+// console.log(flatten([1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]], 100], 3))
+
+//--------------ransom notes--------------------------------------------------
+
+// var canConstruct = function (ransomNote, mag) {
+//     const magMap = {};
+//     for (let i = 0; i < mag.length; i++) {
+//         if (magMap[mag[i]]) {
+//             magMap[mag[i]]++;
+//         }
+//         else {
+//             magMap[mag[i]] = 1;
+//         }
+//     }
+//     for (let i = 0; i < ransomNote.length; i++) {
+//         if (magMap[ransomNote[i]]) {
+//             magMap[ransomNote[i]]--;
+//         } else return false;
+//     }
+//     return true;
+// };
+// console.log(canConstruct("ab", "aabb"));
+
+
+//----------- remove K digits---------------------------------------------------
+// var removeKdigits = function (num, k) {
+//     for (let i = 0; i < num.length; i++) {
+//         if (k > 0 && (num[i] > num[i + 1] || i === num.length - 1)) {
+//             num = num.replace(num[i], '');
+//             i = i - 2;
+//             k--;
+//         }
+//         if (k === 0) break;
+//     }
+//     const ans = num.replace(/^0+/, "");
+//     return !ans ? "0" : ans;
+// };
+// console.log(removeKdigits("1432219", 3))
+
+//-----------number of 1 in bin representation ----------------------------------
+
+// function numberOf1(a) {
+//     if (a === 1) return 1;
+//     let count = 0;
+//     while (a !== 0) {
+//         a = a & (a - 1);
+//         count++;
+//     }
+//     return count;
+// }
+// console.log(numberOf1(3));
+
+//---------------------------------------------------------------
+//match this output from obj;
+/*
+OUTPUT -
+{
+    "1" : ["a","c"],
+    "2" : [“a”, "b", "d"],
+    "3" : ["a","b","d"],
+    "5" : ["b","c","d"]
+}
+*/
+
+// const obj = {
+//     a: [1, 2, 3],
+//     b: [2, 3, 5],
+//     c: [1, 5],
+//     d: [2, 3, 5]
+// }
+// const newObj = {};
+
+// function invert() {
+//     for (const key in obj) {
+//         obj[key].forEach(e => {
+//             if (newObj[e]) {
+//                 newObj[e].push(key);
+//             } else {
+//                 newObj[e] = [key];
+//             }
+//         });
+//     }
+//     console.log(newObj)
+// }
+// invert();
+
+//--------------------------------------------------------------------------------
+// function decode(message) {
+//     let str = "";
+//     let m = 0, pt = 0, n = message.length, dir = 1;
+//     if(!message.length) return "";
+//     if (message[0].length === 1 && message[0][0]) return message[0][0];
+//     while (m < (message.length) && pt < (message[0].length)) {
+//         if (dir > 0) {
+//             while (pt < n) {
+//                 str += message[m++][pt++];
+//             }
+//             m -= 2;
+//             dir = -1;
+//             n += message.length - 1;
+//         }
+//         else if (dir < 0) {
+//             while (pt < n) {
+//                 str += message[m--][pt++];
+//             }
+//             m += 2;
+//             n += message.length - 1;
+//             dir = 1
+//         }
+//     }
+//     return str;
+// }
+
+// const input = [
+//     ['I', 'B', 'C', 'A', 'L', 'K', 'A'],
+//     ['D', 'R', 'F', 'C', 'A', 'E', 'A'],
+//     ['G', 'H', 'O', 'E', 'L', 'A', 'D']
+// ]
+
+// console.log(decode([["A"], ["B"]]))
+
+//---------------------------------- subscriber model----------------------------------
+// class EventEmitter {
+//     #list = {};
+//     subscribe(eventName, callback) {
+//         if (this.#list[eventName]) {
+//             this.#list[eventName].push(callback)
+//         } else {
+//             this.#list[eventName] = [callback];
+//         }
+//         const that = this;
+//         const pos = that.#list[eventName].length;
+//         return {
+//             addedCB: pos,
+//             release() {
+//                 that.releaseInt(eventName, this.addedCB);
+//             }
+//         }
+//     }
+
+//     emit(eventName, ...args) {
+//         const arr = this.#list[eventName];
+//         if (arr) {
+//             arr.forEach((e) => e(...args))
+//         }
+//     }
+
+//     releaseInt(eventName, pos) {
+//         this.#list[eventName][pos - 1] = function () { };
+//     }
+// }
+
+// const emitter = new EventEmitter()
+// const callback1 = (...arg) => { console.log("from cb1", ...arg) }
+// const sub1 = emitter.subscribe('event1', callback1)
+// const sub2 = emitter.subscribe('event1', callback1)
+// emitter.emit('event1', 1, 2, 3)
+// sub2.release()
+// emitter.emit('event1', 4, 5, 6)
+
+
+
+//------------DFS on DOM---------------------------------------------------------------
+// // recursive approach and find max depth
+// let length = 0;
+// let maxLength = 0;
+// function dfsbyRecursion(node) {
+//     length++;
+//     if (!node.children.length) {
+//         maxLength = Math.max(length, maxLength);
+//         length = 0;
+//     }
+//     console.log(node);
+//     for (let i = 0; i < node.children.length; i++) {
+//         // console.log(node.children[i]);
+//         dfsbyRecursion(node.children[i])
+//     }
+// }
+// dfsbyRecursion(document.querySelector("body"));
+// console.log(maxLength)
+// console.log("---------------------------------------------------------")
+
+// // stack iterative approach
+// function traverse(node) {
+//     const a = [node];
+//     while (a.length) {
+//         const popped = a.pop();
+//         for (let i = 0; i < popped.children.length; i++) {
+//             console.log(popped.children[i])
+//             a.push(popped.children[i]);
+//         }
+//     }
+// }
+// traverse(document.querySelector("body"))
+// console.log("--------------tree walker api-------------------------------------------")
+
+// // tree walker api - DFS
+// function treeWalker(node) {
+//     const walker = document.createTreeWalker(node, NodeFilter.SHOW_ALL);
+//     while (node = walker.nextNode()) {
+//         console.log(node);
+//     }
+// }
+
+// treeWalker(document.querySelector("body"))

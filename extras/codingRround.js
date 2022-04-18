@@ -412,7 +412,35 @@
 // },0);
 // console.log(sum);
 
-//-------------------------------------------------------------------------------------------------------------
+
+//--------------some more currying-------------------------------------------------------------------------------------
+
+// function sum(...args) {
+//     return args.reduce((init, acc) => init + acc)
+// }
+
+// function curry(fn) {
+//     let cached = [];
+//     return function curried(...args) {
+//         if (!args.length) {
+//             const ans = fn(...cached);
+//             cached = [];
+//             return ans;
+//         } else {
+//             cached.push(...args);
+//             return function (...args) {
+//                 return curried(...args);
+//             }
+//         }
+//     }
+// }
+
+// let curriedSum = curry(sum);
+// console.log(curriedSum(1, 2, 3, 4)());
+// console.log(curriedSum(1)(2, 3)(4)());
+// console.log(curriedSum(1)(2)(3)(9)(1)(0)());
+
+//---------------------------------------------------------------------------------------------
 
 // level order traversal of Binary tree
 

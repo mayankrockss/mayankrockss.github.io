@@ -26,7 +26,7 @@ main {
 .title {
     margin-top: 10px;
 }
-
+/* ---------------------------------------------------------------------- */
 .star-outer {
     position: relative;
     display: inline-block;
@@ -54,6 +54,7 @@ main {
     color: rgb(243, 213, 14);
     font-weight: 100;
 }
+/* ------------------------------------------------------------------- */
 
 nav ul{
 display: flex;
@@ -75,8 +76,11 @@ nav ul >li a {
     padding: 10px;
     border-radius: 10px;
     box-shadow:  0 0px 6px 1px currentColor;
-    transition: box-shadow linear 80ms;
+    transition: background-color linear 80ms;
 }
 nav ul >li a:hover {
+    background-color: rgb(78, 13, 26);
+}
+nav ul >li a:active {
     box-shadow: 0 0 3px currentColor;
 }

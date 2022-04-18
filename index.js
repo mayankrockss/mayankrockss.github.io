@@ -11,16 +11,34 @@ function debounce(fn, time) {
     };
 }
 
-function throttle(fn, time) {
+// function throttle(fn, time) {
+//     let inProgress = false;
+//     return function () {
+//         if (inProgress) return;
+//         inProgress = true;
+//         fn.apply(this, arguments);
+//         setTimeout(() => {
+//             inProgress = false;
+//         }, time);
+//     };
+// }
+
+//----right throttle with last callback args saving feature
+function throttle(func, wait) {
     let inProgress = false;
-    return function () {
-        if (inProgress) return;
+    let lastCbArgs;
+    return throttledNow = (...args) => {
+        if (inProgress) { lastCbArgs = args; return };
         inProgress = true;
-        fn.apply(this, arguments);
+        func(...args);
         setTimeout(() => {
-            inProgress = false;
-        }, time);
-    };
+            inProgress = false
+            if (lastCbArgs) {
+                throttledNow(...lastCbArgs)
+                lastCbArgs = null;
+            }
+        }, wait)
+    }
 }
 
 const onclick = (msg) => {
