@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    position: fixed;
+    height: 100%;
+    left: -150px;
+    transition: left 500ms ease-in;
+    /* transform: translateX(-100%); */
+    width: 150px;
+    background-color: steelblue;
+
+}
+
+.hamburger {
+    position: absolute;
+    background-color: aqua;
+    top:0;
+    left: 150px;
+    width: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 10px;
+}
+.modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(1, 1, 1, .5);
+    z-index: 100;
+    display: none; 
+}
+.applymodal {
+    display: initial; 
+}
+.inner-modal {
+    position: absolute;
+    background-color: white;
+    top:50%;
+    left:50%;
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    animation: flyin 700ms ease-in forwards ;
+}
+
+.fly {
+    left: 0;
+    /* animation: flyin 1s ease-in forwards; */
+}
+
+ /* p:not(.fly) {
+    animation: flyout 1s ease-in forwards;
+} */
+
+@keyframes flyin {
+    0% {
+        opacity: 0;
+        top: 20%;
+        /* transform: translate(0, 0) */
+    }
+
+    100% {
+        opacity: 1;
+        top: 50%;
+        /* transform: translate(-50%, -50%) */
+    }
+}
+
+/* @keyframes flyout {
+    0% {
+        transform: translateX(0%)
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
+}  */

@@ -35,7 +35,7 @@ const list = document.getElementById("list");
 let pageNo = 0;
 let fromPageNo = 0;
 async function callAPI(pageNo, addObserver = true) {
-    const res = await fetch(`https://api.instantwebtools.net/v1/passenger?page=${pageNo}&size=50`);
+    const res = await fetch(`https://api.instantwebtools.net/v1/passenger?page=${pageNo}&size=70`);
     const result = await res.json();
     console.log(result);
     if (addObserver)

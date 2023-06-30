@@ -398,8 +398,8 @@
 
 // Array.prototype.myReduce = function (fn, init) {
 //     let finalRes = init ?? this[0];
-//     if (finalRes === undefined) {
-//         this.shift();
+//     if (init === undefined) {
+//         this.shift(); // modifies original array
 //     }
 //     this.forEach((item) => {
 //         finalRes = fn(finalRes, item);

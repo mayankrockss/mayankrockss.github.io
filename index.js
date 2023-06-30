@@ -70,14 +70,21 @@ function initBar() {
     // }, 3000 / 100);
 
     // // Method-2
-    innerBar.style.transition = "width linear 1000ms";
-    innerBar.style.width = "100%";
+    const interval = setInterval(() => {
+        const width = +innerBar.style.width.split("%")[0]
+        if (width < 100)
+            innerBar.style.width = width + 17 + "%";
+        else {
+            console.log("ended")
+            clearInterval(interval);
+        }
+    }, 500);
 }
 
 //-------stars without avg, in initeger selection and event delegation---------------------------------
 let targetId;
 function handleRating(e) {
-    if (e.target.tagName === "SPAN") {
+    if (e.target.matches("Span")) {
         targetId = +e.target.id;
         for (i = 1; i <= 5; i++) {
             const target = document.getElementById(i);
@@ -93,3 +100,4 @@ function handleRating(e) {
         alert(targetId)
     }
 }
+
