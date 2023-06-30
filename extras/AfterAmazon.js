@@ -673,3 +673,25 @@ console.log(count, 'hi2')
 // console.log(count2)
 // const count3 = setMyTImeout(() => console.log("hi"), 1000)
 // console.log(count3)
+
+
+
+// new polyfill
+
+function New(ctor, ...args){
+  const obj = {};
+  obj.__proto__ = ctor.prototype;
+ctor.apply(obj, args);
+console.log(obj);
+  return obj;
+}
+
+function Shape(color){
+  this.color = color
+}
+
+const obj = New(Shape, "red");
+const obj2 = new Shape("red")
+
+
+console.log(obj, obj2, obj.__proto__ === Shape.prototype, obj.constructor === Shape);
